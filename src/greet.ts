@@ -4,9 +4,11 @@ export function greet(who: Greetable): string {
   if (Array.isArray(who)) {
     return "Hello, Bob and Alice";
   }
+
   if (who === null) {
     return "Hello, my friend.";
   }
+
   if (isShouting(who)) {
     return `HELLO, ${who}!`;
   }
