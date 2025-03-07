@@ -2,7 +2,7 @@ type Greetable = string[] | string | null;
 
 export function greet(who: Greetable): string {
   if (Array.isArray(who)) {
-    return "Hello, Bob and Alice";
+    return "Hello, Bob and Alice.";
   }
 
   if (who === null) {
