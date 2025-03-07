@@ -16,3 +16,7 @@ it("handle shouting", () => {
 it("handle two names", () => {
   expect(greet(['Bob', 'Alice'])).to.equal('Hello, Bob and Alice.');
 });
+
+it("handle three names", () => {
+  expect(greet(['Amy', 'Brian', 'Charlotte'])).to.equal('Hello, Amy, Brian, and Charlotte.');
+});
