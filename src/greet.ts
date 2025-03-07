@@ -1,23 +1,33 @@
 type Greetable = string[] | string | null;
 
 export function greet(who: Greetable): string {
-  if (Array.isArray(who)) {
-    return `Hello, ${concatenateNames(who)}.`;
-  }
-
   if (who === null) {
-    return "Hello, my friend.";
+    return processNone();
   }
 
-  if (isShouting(who)) {
-    return `HELLO, ${who}!`;
+  if (Array.isArray(who)) {
+    return processNames(who);
   }
 
-  return `Hello, ${who}.`;
+  return processName(who);
 }
 
 function isShouting(who: string): boolean {
   return who === who.toUpperCase();
+}
+
+function processNames(who: string[]): string {
+  return `Hello, ${concatenateNames(who)}.`;
+}
+
+function processName(who: string): string {
+  return isShouting(who)
+    ? `HELLO, ${who}!`
+    : `Hello, ${who}.`;
+}
+
+function processNone(): string {
+  return "Hello, my friend.";
 }
 
 function concatenateNames(names: string[]): string {
