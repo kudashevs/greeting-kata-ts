@@ -18,8 +18,8 @@ function isShouting(who: string): boolean {
 
 function processNames(who: string[]): string {
   const {
-    normal: names,
-    shout: shouts,
+    normal: normalNames,
+    shout: shoutNames,
   } = who.reduce((acc, name) => {
     if (isShouting(name)) {
       acc.shout.push(name);
@@ -30,9 +30,9 @@ function processNames(who: string[]): string {
     return acc;
   }, {normal: [], shout: []});
 
-  return (shouts.length > 0)
-    ? `Hello, ${concatenateNames(names)}. AND HELLO ${concatenateShouts(shouts)}!`
-    : `Hello, ${concatenateNames(names)}.`;
+  return (shoutNames.length > 0)
+    ? `Hello, ${concatenateNames(normalNames)}. AND HELLO ${concatenateShouts(shoutNames)}!`
+    : `Hello, ${concatenateNames(normalNames)}.`;
 }
 
 function processName(who: string): string {
