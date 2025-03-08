@@ -24,3 +24,8 @@ it("handle three names", () => {
 it("handle different names", () => {
   expect(greet(['Amy', 'BRIAN', 'Charlotte'])).to.equal('Hello, Amy and Charlotte. AND HELLO BRIAN!');
 });
+
+it("handle names and sequences", () => {
+  expect(greet(['Bob', 'Charlie, Dianne'])).to.equal('Hello, Bob, Charlie, and Dianne.');
+});
+

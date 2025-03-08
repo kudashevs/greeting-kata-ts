@@ -17,10 +17,16 @@ function isShouting(who: string): boolean {
 }
 
 function processNames(who: string[]): string {
+  const names = who.reduce((acc, sequense) => {
+    sequense.includes(',') ? acc.push(...sequense.split(', ')) : acc.push(sequense);
+
+    return acc;
+  }, []);
+
   const {
     normal: normalNames,
     shout: shoutNames,
-  } = who.reduce((acc, name) => {
+  } = names.reduce((acc, name) => {
     if (isShouting(name)) {
       acc.shout.push(name);
     } else {
