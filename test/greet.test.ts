@@ -20,3 +20,7 @@ it("handle two names", () => {
 it("handle three names", () => {
   expect(greet(['Amy', 'Brian', 'Charlotte'])).to.equal('Hello, Amy, Brian, and Charlotte.');
 });
+
+it("handle different names", () => {
+  expect(greet(['Amy', 'BRIAN', 'Charlotte'])).to.equal('Hello, Amy and Charlotte. AND HELLO BRIAN!');
+});
