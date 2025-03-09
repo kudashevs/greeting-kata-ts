@@ -22,31 +22,19 @@ function processNone(): string {
 
 /*
  * Before refactoring:
- * LOC: 24
+ * LOC: 12
  * ABC: 8
- * A (Assignments) = 4
+ * A (Assignments) = 3
  * B (Branches) = 2
- * C (Conditions) = 2
+ * C (Conditions) = 3
  */
 function processNames(who: string[]): string {
   const names = who.reduce((acc, sequense) => {
-    acc.push(...parseSequence(sequense));
-
-    return acc;
+    return [...acc, ...parseSequence(sequense)];
   }, []);
 
-  const {
-    normal: normalNames,
-    shout: shoutNames,
-  } = names.reduce((acc, name) => {
-    if (isShouting(name)) {
-      acc.shout.push(name);
-    } else {
-      acc.normal.push(name);
-    }
-
-    return acc;
-  }, {normal: [], shout: []});
+  const normalNames = names.filter(name => !isShouting(name));
+  const shoutNames = names.filter(name => isShouting(name));
 
   return (shoutNames.length > 0)
     ? `Hello, ${concatenateNames(normalNames)}. AND HELLO ${concatenateShouts(shoutNames)}!`
