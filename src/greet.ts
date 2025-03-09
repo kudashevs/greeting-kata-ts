@@ -9,15 +9,11 @@ type Greetable = string[] | string | null;
  * C (Conditions) = 8
  */
 export function greet(who: Greetable): string {
-  if (who === null) {
-    return processNone();
+  switch (true) {
+    case who === null: return processNone();
+    case Array.isArray(who): return processNames(who);
+    default: return processName(who);
   }
-
-  if (Array.isArray(who)) {
-    return processNames(who);
-  }
-
-  return processName(who);
 }
 
 function processNone(): string {
