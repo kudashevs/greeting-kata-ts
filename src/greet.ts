@@ -1,12 +1,12 @@
 type Greetable = string[] | string | null;
 
 /*
- * Before refactoring:
- * LOC: 74
- * ABC: 25
- * A (Assignments) = 10
- * B (Branches) = 7
- * C (Conditions) = 8
+ * After refactoring:
+ * LOC: 54
+ * ABC: 22
+ * A (Assignments) = 9
+ * B (Branches) = 6
+ * C (Conditions) = 7
  */
 export function greet(who: Greetable): string {
   switch (true) {
