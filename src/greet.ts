@@ -42,13 +42,9 @@ function processNames(who: string[]): string {
 }
 
 function concatenateNames(names: string[]): string {
-  if (names.length === 2) {
-    return names.join(' and ');
-  }
-
-  const last = names.pop();
-
-  return names.join(', ') + ', and ' + last;
+  return (names.length <= 2)
+    ? names.join(' and ')
+    : names.slice(0, -1).join(', ') + ', and ' + names.slice(-1);
 }
 
 function concatenateShouts(shouts: string[]): string {
