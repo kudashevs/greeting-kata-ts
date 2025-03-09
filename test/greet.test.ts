@@ -29,3 +29,8 @@ it("handle names and sequences", () => {
   expect(greet(['Bob', 'Charlie, Dianne'])).to.equal('Hello, Bob, Charlie, and Dianne.');
 });
 
+it("handle intentional commas", () => {
+  expect(greet(['Bob', '"Charlie, Dianne"'])).to.equal('Hello, Bob and Charlie, Dianne.');
+});
+
+

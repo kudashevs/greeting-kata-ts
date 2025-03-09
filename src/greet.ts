@@ -42,6 +42,10 @@ function processNames(who: string[]): string {
 }
 
 function parseSequence(sequense) {
+  if (sequense.includes('"')) {
+    return [sequense.replace(/^"/, '').replace(/"$/, '')];
+  }
+
   return sequense.includes(',') ? sequense.split(', ') : [sequense];
 }
 
