@@ -12,8 +12,8 @@ export function greet(who: Greetable): string {
   return processName(who);
 }
 
-function isShouting(who: string): boolean {
-  return who === who.toUpperCase();
+function processNone(): string {
+  return 'Hello, my friend.';
 }
 
 function processNames(who: string[]): string {
@@ -41,6 +41,20 @@ function processNames(who: string[]): string {
     : `Hello, ${concatenateNames(normalNames)}.`;
 }
 
+function concatenateNames(names: string[]): string {
+  if (names.length === 2) {
+    return names.join(' and ');
+  }
+
+  const last = names.pop();
+
+  return names.join(', ') + ', and ' + last;
+}
+
+function concatenateShouts(shouts: string[]): string {
+  return shouts.join(', ');
+}
+
 function parseSequence(sequense) {
   if (sequense.includes('"')) {
     return [sequense.replace(/^"/, '').replace(/"$/, '')];
@@ -55,20 +69,6 @@ function processName(who: string): string {
     : `Hello, ${who}.`;
 }
 
-function processNone(): string {
-  return "Hello, my friend.";
-}
-
-function concatenateNames(names: string[]): string {
-  if (names.length === 2) {
-    return names.join(' and ');
-  }
-
-  const last = names.pop();
-
-  return names.join(', ') + ', and ' + last;
-}
-
-function concatenateShouts(shouts: string[]): string {
-  return shouts.join(', ');
+function isShouting(who: string): boolean {
+  return who === who.toUpperCase();
 }
