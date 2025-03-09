@@ -1,5 +1,13 @@
 type Greetable = string[] | string | null;
 
+/*
+ * Before refactoring:
+ * LOC: 74
+ * ABC: 25
+ * A (Assignments) = 10
+ * B (Branches) = 7
+ * C (Conditions) = 8
+ */
 export function greet(who: Greetable): string {
   if (who === null) {
     return processNone();
@@ -16,6 +24,14 @@ function processNone(): string {
   return 'Hello, my friend.';
 }
 
+/*
+ * Before refactoring:
+ * LOC: 24
+ * ABC: 8
+ * A (Assignments) = 4
+ * B (Branches) = 2
+ * C (Conditions) = 2
+ */
 function processNames(who: string[]): string {
   const names = who.reduce((acc, sequense) => {
     acc.push(...parseSequence(sequense));
