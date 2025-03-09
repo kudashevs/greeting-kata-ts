@@ -18,7 +18,7 @@ function isShouting(who: string): boolean {
 
 function processNames(who: string[]): string {
   const names = who.reduce((acc, sequense) => {
-    sequense.includes(',') ? acc.push(...sequense.split(', ')) : acc.push(sequense);
+    acc.push(...parseSequence(sequense));
 
     return acc;
   }, []);
@@ -39,6 +39,10 @@ function processNames(who: string[]): string {
   return (shoutNames.length > 0)
     ? `Hello, ${concatenateNames(normalNames)}. AND HELLO ${concatenateShouts(shoutNames)}!`
     : `Hello, ${concatenateNames(normalNames)}.`;
+}
+
+function parseSequence(sequense) {
+  return sequense.includes(',') ? sequense.split(', ') : [sequense];
 }
 
 function processName(who: string): string {
