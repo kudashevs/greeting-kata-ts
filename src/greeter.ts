@@ -3,7 +3,7 @@ type Greetable = string[] | string | null;
 export default class Greeter {
   greet(who: Greetable): string {
     if (Array.isArray(who)) {
-      return "Hello, Bob and Alice.";
+      return `Hello, ${this.concatenate(who)}.`;
     }
 
     if (who === null) {
@@ -19,5 +19,11 @@ export default class Greeter {
 
   private isShouting(who: string): boolean {
     return who === who.toUpperCase();
+  }
+
+  private concatenate(who: string[]) : string{
+    return who.length === 2
+      ? who.join(' and ')
+      : who.slice(0, -1).join(', ') + ', and ' + who.slice(-1);
   }
 }

@@ -19,4 +19,8 @@ describe('greeter test suite', () => {
   it("handle two names", () => {
     expect(greeter.greet(['Bob', 'Alice'])).to.equal('Hello, Bob and Alice.');
   });
+
+  it("handle three names", () => {
+    expect(greeter.greet(['Amy', 'Brian', 'Charlotte'])).to.equal('Hello, Amy, Brian, and Charlotte.');
+  });
 });
