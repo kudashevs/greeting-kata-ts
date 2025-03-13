@@ -12,11 +12,9 @@ export default class Greeter {
       return this.normalGreeting(this.DEFAULT_NAME);
     }
 
-    if (this.isShouting(who)) {
-      return this.shoutGreeting(who);
-    }
-
-    return `Hello, ${who}.`;
+    return this.isShouting(who)
+      ? this.shoutGreeting(who)
+      : this.normalGreeting(who);
   }
 
   private isShouting(who: string): boolean {
