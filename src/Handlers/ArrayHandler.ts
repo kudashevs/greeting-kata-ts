@@ -2,12 +2,12 @@ import Handler from './Handler';
 
 export default class ArrayHandler extends Handler {
   handle(text: string[]): string {
-    const names: string[] = text.reduce((acc, sequense) => {
+    const names: string[] = text.reduce((acc: string[], sequense: string) => {
       return [...acc, ...this.parseSequence(sequense)];
     }, []);
 
-    const normalNames = names.filter((name) => !this.isShouting(name));
-    const shoutNames = names.filter((name) => this.isShouting(name));
+    const normalNames = names.filter((name: string) => !this.isShouting(name));
+    const shoutNames = names.filter((name: string) => this.isShouting(name));
 
     return (shoutNames.length > 0)
       ? this.normalGreeting(this.concatenateNormal(normalNames)) + this.shoutGreeting(this.concatenateShout(shoutNames))
