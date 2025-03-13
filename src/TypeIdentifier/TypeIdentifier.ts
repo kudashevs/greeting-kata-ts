@@ -1,7 +1,7 @@
 import {Greetable, InputType} from '../Types/Types.d.ts';
 
 export default class TypeIdentifier {
-  identify(input: Greetable): string {
+  identify(input: Greetable): InputType {
     switch (true) {
       case Array.isArray(input):
         return InputType.Array;
