@@ -7,9 +7,7 @@ import StringHandler from './Handlers/StringHandler';
 import NullHandler from './Handlers/NullHandler';
 
 export default class Greeter {
-
   private identifier: TypeIdentifier = new TypeIdentifier();
-
 
   greet(input: Greetable): string {
     return this.resolve(input)
