@@ -11,9 +11,9 @@ export default class Greeter {
   private identifier: TypeIdentifier = new TypeIdentifier();
 
 
-  greet(who: Greetable): string {
-    return this.resolve(who)
-      .handle(who);
+  greet(input: Greetable): string {
+    return this.resolve(input)
+      .handle(input);
   }
 
   private resolve(input: Greetable): Handler {
