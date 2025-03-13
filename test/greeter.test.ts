@@ -31,4 +31,8 @@ describe('greeter test suite', () => {
   it("handle names and sequences", () => {
     expect(greeter.greet(['Bob', 'Charlie, Dianne'])).to.equal('Hello, Bob, Charlie, and Dianne.');
   });
+
+  it("handle intentional commas", () => {
+    expect(greeter.greet(['Bob', '"Charlie, Dianne"'])).to.equal('Hello, Bob and Charlie, Dianne.');
+  });
 });

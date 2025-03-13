@@ -15,6 +15,10 @@ export default class ArrayHandler extends Handler {
   }
 
   private parseSequence(sequense: string): string[] {
+    if (sequense.includes('"')) {
+      return [sequense.replace(/^"/, '').replace(/"$/, '')];
+    }
+
     return sequense.includes(',') ? sequense.split(', ') : [sequense];
   }
 
