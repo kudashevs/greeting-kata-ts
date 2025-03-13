@@ -7,17 +7,16 @@ export default class Greeter {
   private identifier: TypeIdentifier = new TypeIdentifier();
 
   greet(who: Greetable): string {
-    if (Array.isArray(who)) {
-      return this.normalGreeting(this.concatenate(who));
+    switch (this.identifier.identify(who)) {
+      case InputType.Array:
+        return this.normalGreeting(this.concatenate(who));
+      case InputType.String:
+        return this.isShouting(who) ? this.shoutGreeting(who) : this.normalGreeting(who);
+      case InputType.Null:
+        return this.normalGreeting(this.DEFAULT_NAME);
+      default:
+        throw new Error('Incompatible type');
     }
-
-    if (who === null) {
-      return this.normalGreeting(this.DEFAULT_NAME);
-    }
-
-    return this.isShouting(who)
-      ? this.shoutGreeting(who)
-      : this.normalGreeting(who);
   }
 
   private isShouting(who: string): boolean {
