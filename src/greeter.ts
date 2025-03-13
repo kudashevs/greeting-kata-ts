@@ -1,7 +1,10 @@
+import TypeIdentifier from './TypeIdentifier/TypeIdentifier';
 import {Greetable, InputType} from './Types/Types.d.ts';
 
 export default class Greeter {
   private readonly DEFAULT_NAME = 'my friend';
+
+  private identifier: TypeIdentifier = new TypeIdentifier();
 
   greet(who: Greetable): string {
     if (Array.isArray(who)) {
