@@ -1,4 +1,4 @@
-type Greetable = string[] | string | null;
+import {Greetable, InputType} from './Types/Types.d.ts';
 
 export default class Greeter {
   private readonly DEFAULT_NAME = 'my friend';
