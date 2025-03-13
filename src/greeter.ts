@@ -9,14 +9,26 @@ export default class Greeter {
   greet(who: Greetable): string {
     switch (this.identifier.identify(who)) {
       case InputType.Array:
-        return this.normalGreeting(this.concatenate(who));
+        return this.processArray(who);
       case InputType.String:
-        return this.isShouting(who) ? this.shoutGreeting(who) : this.normalGreeting(who);
+        return this.processString(who);
       case InputType.Null:
-        return this.normalGreeting(this.DEFAULT_NAME);
+        return this.processNull();
       default:
         throw new Error('Incompatible type');
     }
+  }
+
+  private processNull() {
+    return this.normalGreeting(this.DEFAULT_NAME);
+  }
+
+  private processString(who: string[] | string | null) {
+    return this.isShouting(who) ? this.shoutGreeting(who) : this.normalGreeting(who);
+  }
+
+  private processArray(who: string[] | string | null) {
+    return this.normalGreeting(this.concatenate(who));
   }
 
   private isShouting(who: string): boolean {
