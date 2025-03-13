@@ -1,13 +1,15 @@
 type Greetable = string[] | string | null;
 
 export default class Greeter {
+  private readonly DEFAULT_NAME = 'my friend';
+
   greet(who: Greetable): string {
     if (Array.isArray(who)) {
       return this.normalGreeting(this.concatenate(who));
     }
 
     if (who === null) {
-      return this.normalGreeting('my friend');
+      return this.normalGreeting(this.DEFAULT_NAME);
     }
 
     if (this.isShouting(who)) {
